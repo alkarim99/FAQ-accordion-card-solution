@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body{
+      font-family: 'Kumbh Sans', sans-serif;
+      font-size: 12px;
+      background-image: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+      height: 630px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .container{
+      background-color: #fff;
+      display: flex;
+      border-radius: 20px;
+      background-image: url(images/bg-pattern-desktop.svg);
+      background-repeat: no-repeat;
+      background-size: 700px;
+      background-position: -375px -200px;
+    }
+    .container .hero-img{
+      height: 359px;
+      width: 400px;
+      background-image: url(images/illustration-woman-online-desktop.svg);
+      background-repeat: no-repeat;
+      background-size: 400px;
+      background-position: -70px 30px;
+    }
+    .container .hero-img .pattern-desktop{
+      position: relative;
+    }
+    .container .hero-img .pattern-desktop .women-mobile{
+      display: none;
+    }
+    .container .hero-img .pattern-desktop .box{
+      position: absolute;
+      top: 130px;
+      left: -100px;
+    }
+    .container .main{
+      width: 450px;
+      padding: 70px 0;
+    }
+    .container .main .header{
+      margin-top: 0;
+      font-size: 30px;
+      font-weight: 700;
+      color: hsl(238, 29%, 16%);
+    }
+    .container .main .faq{
+      width: 350px;
+      border-bottom: 1px solid hsl(240, 5%, 91%);
+    }
+    .container .main .faq .title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .container .main .faq .title:hover .question{
+      color: hsl(14, 88%, 65%);
+    }
+    .container .main .faq .answer{
+      margin-top: 0;
+      display: none;
+      color: hsl(240, 6%, 50%);
+    }
+    .container .main .faq .arrowUp{
+      display: none;
+      transform: rotate(180deg);
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    @media screen and (max-width: 375px) {
+      .container{
+        margin-top: 100px;
+        width: 350px;
+        flex-direction: column;
+        background-image: url(images/bg-pattern-mobile.svg);
+        background-repeat: no-repeat;
+        background-size: 240px;
+        background-position: 55px 0;
+      }
+      .container .hero-img{
+        width: 350px;
+        height: 70px;
+        background-image: none;
+      }
+      .container .hero-img .pattern-desktop .women-mobile{
+        display: block;
+        position: absolute;
+        top: -110px;
+        left: 58px;
+        height: 180px;
+      }
+      .container .hero-img .pattern-desktop .box{
+        height: 80px;
+        top: -35px;
+        left: 60px;
+      }
+      .container .main{
+        width: 350px;
+        padding: 70px 0;
+      }
+      .container .main .header{
+        text-align: center;
+      }
+      .container .main .faq{
+        margin: 0 auto;
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero-img">
+      <div class="pattern-desktop">
+        <img class="women-mobile" src="images/illustration-woman-online-desktop.svg" alt="women">
+        <img class="box" src="images/illustration-box-desktop.svg" alt="box">
+      </div>
+    </div>
+    <div class="main">
+      <p class="header">FAQ</p>
+      <div class="faq">
+        <div class="title title-1">
+          <p class="question question-1">How many team members can I invite?</p>
+          <img class="arrowDown-1" src="images/icon-arrow-down.svg" alt="arrow-down" onclick="displayAnswer1()">
+          <img class="arrowUp arrowUp-1" src="images/icon-arrow-down.svg" alt="arrow-up" onclick="hideAnswer1()">
+        </div>
+        <p class="answer answer-1">You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
+      </div>
+      <div class="faq">
+        <div class="title title-2">
+          <p class="question question-2">What is the maximum file upload size?</p>
+          <img class="arrowDown-2" src="images/icon-arrow-down.svg" alt="arrow-down" onclick="displayAnswer2()">
+          <img class="arrowUp arrowUp-2" src="images/icon-arrow-down.svg" alt="arrow-up" onclick="hideAnswer2()">
+        </div>
+        <p class="answer answer-2">No more than 2GB. All files in your account must fit your allotted storage space.</p>
+      </div>
+      <div class="faq">
+        <div class="title title-3">
+          <p class="question question-3">How do I reset my password?</p>
+          <img class="arrowDown-3" src="images/icon-arrow-down.svg" alt="arrow-down" onclick="displayAnswer3()">
+          <img class="arrowUp arrowUp-3" src="images/icon-arrow-down.svg" alt="arrow-up" onclick="hideAnswer3()">
+        </div>
+        <p class="answer answer-3">Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
+      </div>
+      <div class="faq">
+        <div class="title title-4">
+          <p class="question question-4">Can I cancel my subscription?</p>
+          <img class="arrowDown-4" src="images/icon-arrow-down.svg" alt="arrow-down" onclick="displayAnswer4()">
+          <img class="arrowUp arrowUp-4" src="images/icon-arrow-down.svg" alt="arrow-up" onclick="hideAnswer4()">
+        </div>
+        <p class="answer answer-4">Yes! Send us a message and we’ll process your request no questions asked.</p>
+      </div>
+      <div class="faq">
+        <div class="title title-5">
+          <p class="question question-5">Do you provide additional support?</p>
+          <img class="arrowDown-5" src="images/icon-arrow-down.svg" alt="arrow-down" onclick="displayAnswer5()">
+          <img class="arrowUp arrowUp-5" src="images/icon-arrow-down.svg" alt="arrow-up" onclick="hideAnswer5()">
+        </div>
+        <p class="answer answer-5">Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+      </div>
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Abdullah Al-Karim</a>.
+  </div>
+  <script>
+    const answer1 = document.querySelector('.answer-1');
+    const answer2 = document.querySelector('.answer-2');
+    const answer3 = document.querySelector('.answer-3');
+    const answer4 = document.querySelector('.answer-4');
+    const answer5 = document.querySelector('.answer-5');
+
+    const question1 = document.querySelector('.question-1');
+    const question2 = document.querySelector('.question-2');
+    const question3 = document.querySelector('.question-3');
+    const question4 = document.querySelector('.question-4');
+    const question5 = document.querySelector('.question-5');
+
+    const arrowDown1 = document.querySelector('.arrowDown-1');
+    const arrowDown2 = document.querySelector('.arrowDown-2');
+    const arrowDown3 = document.querySelector('.arrowDown-3');
+    const arrowDown4 = document.querySelector('.arrowDown-4');
+    const arrowDown5 = document.querySelector('.arrowDown-5');
+
+    const arrowUp1 = document.querySelector('.arrowUp-1');
+    const arrowUp2 = document.querySelector('.arrowUp-2');
+    const arrowUp3 = document.querySelector('.arrowUp-3');
+    const arrowUp4 = document.querySelector('.arrowUp-4');
+    const arrowUp5 = document.querySelector('.arrowUp-5');
+
+    function displayAnswer1() {
+      question1.style.fontWeight = '700';
+      answer1.style.display = 'block';
+      arrowDown1.style.display = 'none';
+      arrowUp1.style.display = 'block';
+    }
+    function hideAnswer1() {
+      question1.style.fontWeight = '400';
+      answer1.style.display = 'none';
+      arrowDown1.style.display = 'block';
+      arrowUp1.style.display = 'none';
+    }
+
+    function displayAnswer2() {
+      question2.style.fontWeight = '700';
+      answer2.style.display = 'block';
+      arrowDown2.style.display = 'none';
+      arrowUp2.style.display = 'block';
+    }
+    function hideAnswer2() {
+      question2.style.fontWeight = '400';
+      answer2.style.display = 'none';
+      arrowDown2.style.display = 'block';
+      arrowUp2.style.display = 'none';
+    }
+
+    function displayAnswer3() {
+      question3.style.fontWeight = '700';
+      answer3.style.display = 'block';
+      arrowDown3.style.display = 'none';
+      arrowUp3.style.display = 'block';
+    }
+    function hideAnswer3() {
+      question3.style.fontWeight = '400';
+      answer3.style.display = 'none';
+      arrowDown3.style.display = 'block';
+      arrowUp3.style.display = 'none';
+    }
+
+    function displayAnswer4() {
+      question4.style.fontWeight = '700';
+      answer4.style.display = 'block';
+      arrowDown4.style.display = 'none';
+      arrowUp4.style.display = 'block';
+    }
+    function hideAnswer4() {
+      question4.style.fontWeight = '400';
+      answer4.style.display = 'none';
+      arrowDown4.style.display = 'block';
+      arrowUp4.style.display = 'none';
+    }
+
+    function displayAnswer5() {
+      question5.style.fontWeight = '700';
+      answer5.style.display = 'block';
+      arrowDown5.style.display = 'none';
+      arrowUp5.style.display = 'block';
+    }
+    function hideAnswer5() {
+      question5.style.fontWeight = '400';
+      answer5.style.display = 'none';
+      arrowDown5.style.display = 'block';
+      arrowUp5.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
